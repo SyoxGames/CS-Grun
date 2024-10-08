@@ -1,6 +1,5 @@
 -- name: [CS] Grun
--- description: Grun is a Irish man with orange hair, green overalls, a pointy hat with a feather, black shoes, and a craving for alcohol.\n\nModel by SyoxGames.\n\nVoiced by _Corndogius_.\n\nGrun and Drunken function by WIZARDCORE.
--- deluxe: true
+-- description: gurn the drunken
 local globalModName = "GRUN";
 local E_MODEL_GRUN = smlua_model_util_get_id("grun_geo");
 local GRUN_SOUNDBANK = {
@@ -74,7 +73,7 @@ if _G.charSelectExists and SM64COOPDX_VERSION then
 	end
 	curVers = tonumber(curVers);
 	
-	local charNum = _G.charSelect.character_add("Grun", {"The drunk fuck",}, "SyoxGames, _Corndogius_, WIZARDCORE", { r = 288, g = 192, b = 0 }, E_MODEL_GRUN, CT_MARIO, get_texture_info("grun_icon"));
+	local charNum = _G.charSelect.character_add("Grun", {"Grun is a Irish man with orange hair, green overalls, a pointy hat with a feather, black shoes, and a craving for alcohol.\n\nModel by SyoxGames.\n\nVoiced by _Corndogius_.\n\nGrun and Drunken function by WIZARDCORE.",}, "SyoxGames, _Corndogius_, WIZARDCORE", { r = 288, g = 192, b = 0 }, E_MODEL_GRUN, CT_MARIO, get_texture_info("grun_icon"));
 	_G.charSelect.character_add_caps(E_MODEL_GRUN, GRUN_CAPMODELS); -- cap code
 	_G.charSelect.character_add_voice(E_MODEL_GRUN, GRUN_SOUNDBANK);
 	if curVers >= 1.8 then
