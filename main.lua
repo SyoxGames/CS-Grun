@@ -1,5 +1,5 @@
 -- name: [CS] Grun
--- description: The drunk fuck
+-- description: Grun is a Irish man with orange hair, green overalls, a pointy hat with a feather, black shoes, and a craving for alcohol.\n\nModel by SyoxGames.\n\nVoiced by _Corndogius_.\n\nGrun and Drunken function by WIZARDCORE.
 -- deluxe: true
 local globalModName = "GRUN";
 local E_MODEL_GRUN = smlua_model_util_get_id("grun_geo");
