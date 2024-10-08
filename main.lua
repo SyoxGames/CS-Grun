@@ -73,7 +73,7 @@ if _G.charSelectExists and SM64COOPDX_VERSION then
 	end
 	curVers = tonumber(curVers);
 	
-	local charNum = _G.charSelect.character_add("Grun", {"Grun is a Irish man with orange hair, green overalls, a pointy hat with a feather, black shoes, and a craving for alcohol.\n\nModel by SyoxGames.\n\nVoiced by _Corndogius_.\n\nGrun and Drunken function by WIZARDCORE.",}, "SyoxGames, _Corndogius_, WIZARDCORE", { r = 288, g = 192, b = 0 }, E_MODEL_GRUN, CT_MARIO, get_texture_info("grun_icon"));
+	local charNum = _G.charSelect.character_add"Grun", "Grun is a Irish man with orange hair, green overalls, a pointy hat with a feather, black shoes, and a craving for alcohol.", "SyoxGames, _Corndogius_, WIZARDCORE", { r = 288, g = 192, b = 0 }, E_MODEL_GRUN, CT_MARIO, get_texture_info("grun_icon");
 	_G.charSelect.character_add_caps(E_MODEL_GRUN, GRUN_CAPMODELS); -- cap code
 	_G.charSelect.character_add_voice(E_MODEL_GRUN, GRUN_SOUNDBANK);
 	if curVers >= 1.8 then
@@ -87,5 +87,5 @@ if _G.charSelectExists and SM64COOPDX_VERSION then
 		if _G.charSelect.character_get_voice(m) == GRUN_SOUNDBANK then return _G.charSelect.voice.snore(m) end
 	end)
 else
-    djui_popup_create("\\#58c000\\\n"..globalModName.."\nRequires the Gruncter Select Mod\nto use as a Library!\n\nPlease turn on the Gruncter Select Mod\nand Restart the Room!", 6)
+    djui_popup_create("\\#58c000\\\n"..globalModName.."\nRequires the Character Select Mod\nto use as a Library!\n\nPlease turn on the Character Select Mod\nand Restart the Room!", 6)
 end
