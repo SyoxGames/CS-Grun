@@ -1,6 +1,7 @@
 -- name: [CS] Grun
 -- description: gurn the drunken
 local globalModName = "GRUN";
+local packVers = "1.1.1";
 local E_MODEL_GRUN = smlua_model_util_get_id("grun_geo");
 local TEX_GRUN_ICON = get_texture_info("grun_icon")
 local GRUN_SOUNDBANK = {
@@ -66,20 +67,22 @@ local GRUN_PALETTE = { -- this is the default palette!
 }
 
 if _G.charSelectExists and SM64COOPDX_VERSION then
-	local curVers = _G.charSelect.version_get();
-	if not tonumber(curVers) then -- if this cannot be simplified to a number, there's other strings in this
-		curVers = string.gsub(curVers, "[%a%s_()!?:,@#-]+", ""); -- removing all letters, spaces, and the chars in the [set]
-		
-		curVers = curVers:gsub("%.", "X", 1):gsub("%.", ""):gsub("X", "."); -- removes all instances except the first decimal point
+	-- DESCRIPTION & CREDITS
+	if _G.charSelect.credit_add then
+		_G.charSelect.credit_add(globalModName, "SyoxGames", "Model");
+		_G.charSelect.credit_add(globalModName, "_Corndogius_", "VA");
+		_G.charSelect.credit_add(globalModName, "WIZARDCORE", "CEO Drunken Function");
 	end
-	curVers = tonumber(curVers);
-	
-	CT_GRUN = _G.charSelect.character_add("Grun", "Grun is a Irish man with orange hair, green overalls, a pointy hat with a feather, black shoes, and a craving for alcohol.", "SyoxGames, _Corndogius_, WIZARDCORE", { r = 288, g = 192, b = 0 }, E_MODEL_GRUN, CT_MARIO, TEX_GRUN_ICON);
-	
+	local charNum = _G.charSelect.character_add("Grun", {"Grun is a Irish man with orange hair", "green overalls, a pointy hat with" , "a feather, black shoes,", "and a craving for alcohol.", "", "Version "..packVers}, "SyoxGames, _Corndogius_, WIZARDCORE", { r = 288, g = 192, b = 0 }, E_MODEL_GRUN, CT_MARIO, get_texture_info("grun_icon"));
 	_G.charSelect.character_add_caps(E_MODEL_GRUN, GRUN_CAPMODELS); -- cap code
 	_G.charSelect.character_add_voice(E_MODEL_GRUN, GRUN_SOUNDBANK);
-	if curVers >= 1.8 then
+	
+	if _G.charSelect.character_add_palette_preset then -- adds palette preset
 		_G.charSelect.character_add_palette_preset(E_MODEL_GRUN, GRUN_PALETTE);
+	end
+	
+	if _G.charSelect.dialog_set_replace_name then -- adds replacable names in dialogue
+		_G.charSelect.dialog_set_replace_name("Grun");
 	end
 	
 	hook_event(HOOK_CHARACTER_SOUND, function (m, sound)
